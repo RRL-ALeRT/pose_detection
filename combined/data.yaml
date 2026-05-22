@@ -1,0 +1,9 @@
+path: /home/fh-aachen/yolo_dataset/combined
+train: images/train
+val: images/val
+
+nc: 2
+
+names:
+  0: 'linear_board'
+  1: 'pipe'
