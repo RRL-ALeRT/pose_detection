@@ -1,0 +1,12 @@
+path: /home/fh-aachen/pose_detection/estop
+train: images/train
+val: images/val
+
+# number of classes
+nc: 1
+
+# class names
+names: ['estop']
+
+# Keypoint config
+kpt_shape: [6, 3] # [number of keypoints, dimensionality (3 = x,y,visibility)]

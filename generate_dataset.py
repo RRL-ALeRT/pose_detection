@@ -4,12 +4,12 @@ import os
 import random
 import math
 
-OUTPUT_IMAGES_DIR = os.path.expanduser("~/yolo_dataset/linear_sense/images/train")
-OUTPUT_IMAGES_DIR_VAL = os.path.expanduser("~/yolo_dataset/linear_sense/images/val")
-OUTPUT_LABELS_DIR = os.path.expanduser("~/yolo_dataset/linear_sense/labels/train")
-OUTPUT_LABELS_DIR_VAL = os.path.expanduser("~/yolo_dataset/linear_sense/labels/val")
-BACKGROUNDS_DIR = os.path.expanduser("~/yolo_dataset/backgrounds")
-DECALS_DIR = os.path.expanduser("~/yolo_dataset/decals")
+OUTPUT_IMAGES_DIR = os.path.expanduser("~/pose_detection/linear_sense/images/train")
+OUTPUT_IMAGES_DIR_VAL = os.path.expanduser("~/pose_detection/linear_sense/images/val")
+OUTPUT_LABELS_DIR = os.path.expanduser("~/pose_detection/linear_sense/labels/train")
+OUTPUT_LABELS_DIR_VAL = os.path.expanduser("~/pose_detection/linear_sense/labels/val")
+BACKGROUNDS_DIR = os.path.expanduser("~/pose_detection/backgrounds")
+DECALS_DIR = os.path.expanduser("~/pose_detection/decals")
 DATASET_SIZE = 1500
 CLASS_ID = 0
 SKIP_PARTIAL_OBJECTS = True
