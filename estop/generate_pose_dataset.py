@@ -67,11 +67,17 @@ def randomize_pose_and_scale(cam_obj, target_obj):
     cam_dir = target_obj.location - cam_obj.location
     cam_obj.rotation_euler = cam_dir.to_track_quat('-Z', 'Y').to_euler()
 
-    # E-stop specific rotation (allow to sit on a plane or free rotate)
+    # E-stop specific rotation (restrict backside):
+    # Since the backside is +X, we rotate Y by 90 degrees to point the backside DOWN (-Z) 
+    # to rest flat on the Background Plane. The camera always spawns in the upper 
+    # hemisphere (+Z), so it will never see the back!
+    spin_on_surface = random.uniform(-math.pi, math.pi)
+    wobble = random.uniform(-0.15, 0.15) # Tiny mounting imperfection
+    
     target_obj.rotation_euler = (
-        random.uniform(-math.pi, math.pi),
-        random.uniform(-math.pi, math.pi),
-        random.uniform(-math.pi, math.pi)
+        wobble, 
+        (math.pi / 2) + wobble, 
+        spin_on_surface
     )
 
     # CRITICAL FIX: The FBX was imported at 0.001 scale! 
