@@ -65,7 +65,16 @@ def randomize_pose_and_scale(cam_obj, target_obj):
     )
     
     cam_dir = target_obj.location - cam_obj.location
-    cam_obj.rotation_euler = cam_dir.to_track_quat('-Z', 'Y').to_euler()
+    cam_quat = cam_dir.to_track_quat('-Z', 'Y')
+    
+    # Roll the camera randomly 0-360 degrees. 
+    # This simulates mounting the E-Stop on walls/ceilings or sideways, 
+    # making it appear sideways/upside-down in the images, while guaranteeing 
+    # the viewer is still always in the front hemisphere!
+    import mathutils
+    roll_euler = mathutils.Euler((0.0, 0.0, random.uniform(-math.pi, math.pi)), 'XYZ')
+    cam_quat.rotate(roll_euler)
+    cam_obj.rotation_euler = cam_quat.to_euler()
 
     # E-stop specific rotation (restrict backside):
     # Since the backside is +X, we rotate Y by 90 degrees to point the backside DOWN (-Z) 
