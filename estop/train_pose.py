@@ -1,8 +1,8 @@
 import os
 from ultralytics import YOLO
 
-# 1. Load the pre-trained YOLO11 pose model 
-model = YOLO('yolo11n-pose.pt') # Start with a nano model for speedy training
+# 1. Load the pre-trained pose model 
+model = YOLO('yolo26n-pose.pt') # Using YOLO26 Nano pose model (or change to yolo26s-pose.pt if you need the Small version)
 
 yaml_path = os.path.expanduser("~/pose_detection/estop/data.yaml")
 
